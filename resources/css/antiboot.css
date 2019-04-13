@@ -1,0 +1,47 @@
+body.mce-content-body > p {
+	font-size: 18px !important;
+}
+
+/*Admin Login*/
+.panel,
+.form-control{
+	border-radius: 0 !important;
+}
+
+input.login {
+    border: 0 !important;
+    outline: 0 !important;
+    background: transparent !important;
+    border-bottom: 1px solid #ccc !important;
+    width: 100%;
+    margin-bottom: 20px !important;
+}
+
+input.login:focus{
+	outline: 0 !important;
+    background: #fff !important;
+    border-bottom: 1px solid #7FFFD4 !important;
+}
+
+.btn{
+	border-radius: 0 !important;
+	padding: 3px 10px !important;
+}
+
+.last-update{
+    margin-bottom: 5px;
+}
+
+.last-update:after, .last-update:before{
+    clear: both;
+    display:table;
+    content:" ";
+}
+
+/*.alert-success,
+.alert-danger,
+.alert-warning,
+.alert-info {
+    background-color: #fff !important;
+    border-color: #fff !important;
+}*/

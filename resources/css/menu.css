@@ -1,0 +1,32 @@
+/* Menu CSS */
+.menu {
+	background-color: #2a2a2a;
+}
+
+.menu > li {
+	display: inline-block;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.menu > li > a {
+	color: #fff;
+	padding-top: 20px;
+	padding-right: 10px;
+	padding-bottom: 20px;
+	padding-left: 10px;
+}
+
+.menu > li > a:hover {
+	background-color: #337ab7;
+	text-decoration: none;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+
+.menu > li > a:focus {
+	background-color: #A80000;
+	text-decoration: none;
+}

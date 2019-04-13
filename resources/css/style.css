@@ -1,0 +1,172 @@
+/* Main CSS */
+body { 
+  background: url(http://www.ksforum.org/body_bg.gif) repeat !important; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: "Siyam Rupali";
+}
+
+@font-face {
+    font-family: 'Siyam Rupali';
+    src: url('https://bits.wikimedia.org/static-current/extensions/UniversalLanguageSelector/data/fontrepo/fonts/SiyamRupali/SiyamRupali.eot?version=1.070');
+    src: local('Siyam Rupali'),
+    url('https://bits.wikimedia.org/static-current/extensions/UniversalLanguageSelector/data/fontrepo/fonts/SiyamRupali/SiyamRupali.woff?version=1.070') format('woff'),
+    url('https://bits.wikimedia.org/static-current/extensions/UniversalLanguageSelector/data/fontrepo/fonts/SiyamRupali/SiyamRupali.ttf?version=1.070') format('truetype');
+    font-style: normal;
+}
+
+.container {
+	border: 1px solid #d7d7d7;
+	margin-top: 10px;
+  margin-bottom: 10px;
+	padding: 15px !important;
+	background-color: #fff;
+}
+
+img {
+	width: 100%;
+	overflow: hidden;
+}
+
+
+
+/* Header CSS */
+header {
+	color: #e67e22;
+}
+
+.footer {
+	background-color: #2a2a2a;
+  border-top: 5px solid #337ab7;
+	color: #fff;
+	padding: 20px;
+}
+
+
+
+@media (max-width: 990px) {
+	.front-page-news {
+		background-color: #5a5a5a;
+		height: auto;
+		margin-bottom: 10px;
+	}
+}
+
+@media (min-width: 990px) {
+
+	.frontpage-img {
+		max-height: 163px;
+		overflow: hidden;
+	}
+
+	.front-page-news {
+		background-color: #5a5a5a;
+		height: 215px;
+		margin-bottom: 10px;
+	}
+
+
+}
+
+.front-page-news-headline {
+	padding: 5px;
+}
+
+.front-page-news-headline > a {
+	color: yellow;
+}
+
+.front-page-news-headline > a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+.news-page-highlited {
+  background-color: #5a5a5a;
+  height: 440px;
+}
+
+.news-page-highlited h1 {
+  margin-top: 5px;
+  margin-left: 5px;
+  font-size: 24px;
+}
+
+/*Services Area*/
+#pricing {
+  padding: 0px;
+}
+#pricing ul.pricing {
+  list-style: none;
+  padding: 0;
+  margin: 70px 0 30px;
+  border: 1px solid #eee;
+  border-radius: 5px 5px 4px 4px;
+  padding: 15px;
+  text-align: center;
+}
+#pricing ul.pricing li {
+  display: block;
+  padding: 10px;
+}
+#pricing ul.pricing li.plan-header {
+  background: #5D0575;
+  border-radius: 4px 4px 0 0;
+  margin: -15px -15px 10px;
+  padding: 15px 15px 30px;
+  border: 0;
+}
+#pricing ul.pricing li.plan-header .price-duration {
+  position: relative;
+  margin-top: -63px;
+  top: -10px;
+  display: inline-block;
+  width: 116px;
+  height: 116px;
+  background-image: -moz-linear-gradient(90deg, #C5017D 0%, #C60275 100%);
+  background-image: -webkit-linear-gradient(90deg, #C5017D 0%, #C60275 100%);
+  background-image: -ms-linear-gradient(90deg, #C5017D 0%, #C60275 100%);
+  color: #fff;
+  border-radius: 100px;
+  border: 5px solid #f6f6f6;
+}
+#pricing ul.pricing li.plan-header .price-duration > span {
+  display: block;
+  line-height: 1;
+}
+#pricing ul.pricing li.plan-header .price-duration > span.price {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+#pricing ul.pricing li.plan-header .price-duration > span.duration {
+  margin-top: 5px;
+}
+#pricing ul.pricing li.plan-header .plan-name {
+  margin-top: 10px;
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+  line-height: 1;
+  text-transform: uppercase;
+}
+#pricing ul.pricing {
+  background: #f0f0f0;
+  color: #333;
+  border: 0;
+  height: 430px;
+}
+#pricing ul.pricing.featured li.plan-header {
+  background-image: -moz-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%);
+  background-image: -webkit-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%);
+  background-image: -ms-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%);
+}
+#pricing ul.pricing.featured li.plan-header .plan-name {
+  color: #fff;
+}
+
+.duration {
+	color: #fff;
+}
