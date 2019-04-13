@@ -1,5 +1,6 @@
 <?php
-include "connection/connection.php";
+	include "connection.php";
+	$url = 'http://localhost/krishna';
 ?>
 <!DOCTYPE html>
 <html lang="bn">
@@ -7,9 +8,9 @@ include "connection/connection.php";
 	<meta charset="UTF-8">
 	<title>কৃষ্ণ বার্তা</title>
 
-	<link rel="stylesheet" href="http://ksforum.org/resources/css/style.css">
-	<link rel="stylesheet" href="http://ksforum.org/resources/css/menu.css">
-	<link rel="stylesheet" href="http://ksforum.org/resources/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php echo $url; ?>/resources/css/style.css">
+	<link rel="stylesheet" href="<?php echo $url; ?>/resources/css/menu.css">
+	<link rel="stylesheet" href="<?php echo $url; ?>/resources/css/bootstrap.min.css">
 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="../resources/css/font-awesome.min.css">
@@ -22,7 +23,7 @@ include "connection/connection.php";
 
 		<nav>
 			<ul class="menu list-unstyled">
-				<li><a href="http://www.ksforum.org"><i class="fa fa-home"></i></a></li>
+				<li><a href="<?php echo $url; ?>"><i class="fa fa-home"></i></a></li>
 				<li><a href="">সারাদেশ</a></li>
 				<li><a href="">আন্তর্জাতিক</a></li>
 				<li><a href="">রাজনীতি</a></li>
@@ -38,17 +39,18 @@ include "connection/connection.php";
 		<div class="row">
 			<div class="col-md-9">
 				<?php
-					$query = mysql_query("SELECT * FROM news GROUP by id DESC LIMIT 12");
+					$query = "SELECT * FROM news GROUP by id DESC LIMIT 12";
+					$result = mysqli_query($conn, $query);
 					$count = 1;
-					while ($list = mysql_fetch_assoc($query)) {
+					while ($list = mysqli_fetch_assoc($result)) {
 						
 						if($count == 1) {
 							?>
 							<div class="row">
 								<div class="col-md-8">
 									<div class="news-page-highlited">
-										<img src="upload/<?php echo $list['img']; ?>" alt="">
-										<h1 class="front-page-news-headline"><a href="http://www.ksforum.org/details.php?id=<?php echo $list['id']; ?>"><?php echo $list['headline']; ?></a></h1>
+										<img src="news-images/<?php echo $list['img']; ?>" alt="">
+										<h1 class="front-page-news-headline"><a href="<?php echo $url;  ?>/details.php?id=<?php echo $list['id']; ?>"><?php echo $list['headline']; ?></a></h1>
 									</div>
 								</div>
 								
@@ -57,15 +59,15 @@ include "connection/connection.php";
 							if ($count == 2) { ?>
 								<div class="col-md-4">
 									<div class="front-page-news">
-										<img src="upload/<?php echo $list['img']; ?>" alt="">
-										<p class="front-page-news-headline"><a href="http://www.ksforum.org/details.php?id=<?php echo $list['id']; ?>"><?php echo $list['headline']; ?></a></p>
+										<img src="news-images/<?php echo $list['img']; ?>" alt="">
+										<p class="front-page-news-headline"><a href="<?php echo $url;  ?>/details.php?id=<?php echo $list['id']; ?>"><?php echo $list['headline']; ?></a></p>
 									</div>
 							<?php }
 
 							if ($count == 3) { ?>
 									<div class="front-page-news">	
-										<img src="upload/<?php echo $list['img']; ?>" alt="">
-										<p class="front-page-news-headline"><a href="http://www.ksforum.org/details.php?id=<?php echo $list['id']; ?>"><?php echo $list['headline']; ?></a></p>
+										<img src="news-images/<?php echo $list['img']; ?>" alt="">
+										<p class="front-page-news-headline"><a href="<?php echo $url;  ?>/details.php?id=<?php echo $list['id']; ?>"><?php echo $list['headline']; ?></a></p>
 									</div>
 								</div>
 							</div> <!-- End of Row -->
@@ -76,8 +78,8 @@ include "connection/connection.php";
 								
 									<div class="col-md-4">
 										<div class="front-page-news">	
-											<img src="upload/<?php echo $list['img']; ?>" class="img-responsive" alt="">
-											<p class="front-page-news-headline"><a href="http://www.ksforum.org/details.php?id=<?php echo $list['id']; ?>"><?php echo $list['headline']; ?></a></p>
+											<img src="news-images/<?php echo $list['img']; ?>" class="img-responsive" alt="">
+											<p class="front-page-news-headline"><a href="<?php echo $url;  ?>/details.php?id=<?php echo $list['id']; ?>"><?php echo $list['headline']; ?></a></p>
 										</div>
 									</div>
 							

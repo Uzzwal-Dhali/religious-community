@@ -20,8 +20,8 @@ include "includes/header.php";
 			
 				<?php
 					$id = $_GET['id'];
-					$query = mysql_query("SELECT * FROM news WHERE id='$id'");
-						while($list = mysql_fetch_assoc($query)){
+					$query = mysqli_query($conn, "SELECT * FROM news WHERE id='$id'");
+						while($list = mysqli_fetch_assoc($query)){
 							?>
 							<div class="col-md-12">
 								<h1 class="details_news_headline"><?php echo $list['headline']; ?></h1>

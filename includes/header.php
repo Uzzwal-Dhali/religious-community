@@ -1,4 +1,7 @@
-<?php include "connection/connection.php"; ?>
+<?php
+	include "connection.php";
+	$url = 'http://localhost/krishna';
+?>
 <!DOCTYPE html>
 <html lang="bn">
 <head>

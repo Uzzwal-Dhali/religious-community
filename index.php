@@ -1,5 +1,4 @@
 <?php
-	include "connection/connection.php";
 	include "includes/header.php";
 	include "includes/main-baner.php";
 	include "includes/main-menu.php";
@@ -11,11 +10,12 @@
 			    <div id="amazingslider-1" style="display:block;position:relative;margin:-10px auto 32px;">
 			        <ul class="amazingslider-slides" style="display:none;">
 						<?php
-							$sql = mysqli_query("SELECT * FROM slider GROUP BY id DESC LIMIT 10");
+							$sql = "SELECT * FROM slider GROUP BY id DESC LIMIT 10";
+							$result = mysqli_query($conn, $sql);
 
-							while ($row = mysqli_fetch_array($sql)) {
+							while ($row = mysqli_fetch_array($result)) {
 								?>
-									<li><img src="upload/<?php echo $row['img']; ?>" alt="<?php echo $row['slider_title']; ?>" data-description="<?php echo $row['description']; ?>" /></li>
+									<li><img src="slider-images/<?php echo $row['img']; ?>" alt="<?php echo $row['slider_title']; ?>" data-description="<?php echo $row['description']; ?>" /></li>
 								<?php
 							}					
 						?>
@@ -31,13 +31,15 @@
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<h2 style="color:crimson;" class="animated infinite bounceOut">
-						<!-- <?php
-							$query = mysql_query("SELECT * FROM news GROUP by id DESC LIMIT 1");
-								while($list = mysql_fetch_assoc($query)){
-									?>																										
-									<p class="animated bounceInDown"><a href="http://www.ksforum.org/details.php?id=<?php echo $list['id']; ?>"><?php echo $list['headline']; ?></a></p>
-							<?php }
-						?> -->
+						<?php
+							$sql = "SELECT * FROM news GROUP by id DESC LIMIT 1";
+							$result = mysqli_query($conn, $sql);
+							while($list = mysqli_fetch_assoc($result)){
+								?>																										
+									<p class="animated bounceInDown"><a href="<?php echo $url; ?>/details.php?id=<?php echo $list['id']; ?>"><?php echo $list['headline']; ?></a></p>
+								<?php 
+							}
+						?>
 						২৫ ডিসেম্বর সীতাকুণ্ড ভোলানন্দগিরি আশ্রমে  গীতা শিক্ষা কেন্দ্র চালু
 					</h2>
 				</div>
@@ -165,20 +167,21 @@
 					<p>হিন্দু ধর্ম ও হিন্দুদের নিয়ে বিভিন্ন ধরনের আপডেট পেতে নিয়মিত ভিজিট করুন</p>
 				</div>
 
-				<div class="col-md-9">
+				<div class="col-md-12">
 					<div class="row">
 						<?php
-							$query = mysql_query("SELECT * FROM news GROUP by id DESC LIMIT 6");
-								while($list = mysql_fetch_assoc($query)){
+							$query = "SELECT * FROM news GROUP by id DESC LIMIT 6";
+							$result = mysqli_query($conn, $query);
+								while($list = mysqli_fetch_assoc($result)){
 									?>
 									<div class="col-md-4">
 										<div class="front-page-news">
 											<?php
 												$img_name = $list['img'];
-												if(($list['img'] === '') || !file_exists('upload/'.$img_name)) {
+												if(($list['img'] === '') || !file_exists('news-images/'.$img_name)) {
 													?><img src="doll.png" class="img-resposive"/><?
 												} else {
-													?><img class="frontpage-img" src="upload/<?php echo $list['img']; ?>" class="img-resposive"/><?php
+													?><img class="frontpage-img" src="news-images/<?php echo $list['img']; ?>" class="img-resposive"/><?php
 												}
 											?>
 											
@@ -190,12 +193,12 @@
 					</div>
 				</div>
 
-				<div class="col-md-3 ads">
+				<!-- <div class="col-md-3 ads">
 					<div class="ad"  style="background-color: #d7d7d7;">
 						<img src="ads-img/fashion-ad.jpg" alt="Fashion Ad">
 						<img src="ads-img/niyog.jpg" alt="Fashion Ad">
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</section>
 

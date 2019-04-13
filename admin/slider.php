@@ -49,7 +49,7 @@ if($sql){
 				
 				while($list = mysqli_fetch_assoc($result)){
 					?>
-					<img class="img-thumbnail" style="margin-bottom: 5px;" src="../upload/<?php echo $list['img']; ?>" alt="">
+					<img class="img-thumbnail" style="margin-bottom: 5px;" src="../slider-images/<?php echo $list['img']; ?>" alt="">
 					<div style="background-color: #088da5; color: #fff; margin-bottom: 10px; padding: 5px 10px;"><a style="color: #fff;" href="http://ksforum.org/admin/slider.php?id=<?php echo $list['id']; ?>"><i class="fa fa-trash"></i></a> <?php echo $list['slider_title']; ?></div>
 					<?php	
 				}
@@ -63,18 +63,18 @@ if($sql){
 			<?php
 				if(isset($_POST['submit'])){
 				//storing form data into variables
-				$slider_title = mysqli_real_escape_string ($connection, $_POST['slider_title']);
-				$description = mysqli_real_escape_string ($connection, $_POST['description']);
+				$slider_title = mysqli_real_escape_string ($conn, $_POST['slider_title']);
+				$description = mysqli_real_escape_string ($conn, $_POST['description']);
 
 				//if-else statement to check image
 				if(getimagesize($_FILES["image"]["tmp_name"]) == FALSE ){ //if no image
 					$sql = "INSERT into slider (slider_title, description) VALUES ('$slider_title', '$description')";
 
-					if ($connection->query($sql) === TRUE) {
+					if ($conn->query($sql) === TRUE) {
 					    $info = "Updated successfully without image!";
 					    echo "<meta http-equiv='refresh' content='0;url=slider.php'>";
 					} else {
-					    echo "Error: " . $sql . "<br>" . $connection->error;
+					    echo "Error: " . $sql . "<br>" . $conn->error;
 					}
 				} else { //if there is an image file
 					if(($_FILES['image']['type'] == 'image/gif') || ($_FILES['image']['type'] == 'image/png') || ($_FILES['image']['type'] == 'image/jpeg')){ //checking image type
@@ -82,6 +82,7 @@ if($sql){
 							// $num = rand(1, 999999);
 
 							//image proccessing
+							
 							$img_tmp_name = $_FILES['image']['tmp_name'];
 							// $definedName = str_replace(' ', '_', $headline);
 							$ext = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
@@ -90,7 +91,7 @@ if($sql){
 							$img_name = $filename.'.'.$ext;
 
 							//checkinf if already exists or not
-							if(file_exists('../upload/'.$img_name)){
+							if(file_exists($url.'/slider-images/'.$img_name)){
 								$sql = "INSERT into slider (slider_title, description, img) VALUES ('$slider_title', '$description', '$img_name')";
 
 								if ($connection->query($sql) === TRUE) {
@@ -102,13 +103,14 @@ if($sql){
 							} else {
 								$sql = "INSERT into slider (slider_title, description, img) VALUES ('$slider_title', '$description', '$img_name')";
 
-								if ($connection->query($sql) === TRUE) {
-									move_uploaded_file($img_tmp_name,"../upload/$img_name");
+								if ($conn->query($sql) === TRUE) {
+									move_uploaded_file($img_tmp_name,"../slider-images/".$img_name);
+									move_uploaded_file($img_tmp_name,"../slider-images/".$img_name);
 									
 								    $success = "Updated successfully with image!";
 								    echo "<meta http-equiv='refresh' content='0;url=slider.php'>";
 								} else {
-								    echo "Error: " . $sql . "<br>" . $connection->error;
+								    echo "Error: " . $sql . "<br>" . $conn->error;
 								}
 							}
 						//} else {
